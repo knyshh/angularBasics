@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <title>Angular basics</title>
+</head>
+<body class="container">
+<h1>Angular Basics</h1>
+
+<div data-ng-app="angularBasics" class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{appTitle}}</h2>
+    </div>
+
+    <p>{{appText}}</p>
+
+    <p data-ng-bind="appText + ' one more time'"></p>
+
+    <!-- data-ng-if directive -->
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">data-ng-if, data-ng-hide directives</h2>-->
+        <!--</div>-->
+        <!--<button class="btn btn-primary" data-ng-click="$rootScope.trueFalse = !$rootScope.trueFalse">Click me!</button>-->
+        <!--<p data-ng-if="$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>true</b></p>-->
+
+        <!--<p data-ng-if="!$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>false</b></p>-->
+
+        <!--<p data-ng-if="false">This text will be always deleted from DOM</p>-->
+
+        <!--<p data-ng-hide="true">This text will with "display=none;" css</p>-->
+    <!--</div>-->
+
+    <!-- data-ng-repeat directive -->
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">data-ng-repeat directive</h2>-->
+        <!--</div>-->
+        <!--<ul data-ng-repeat="rule in rules">-->
+            <!--<li class="{{rule.index}}">{{rule.message}}</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+    <!-- data-ng-options directive -->
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">data-ng-options directive</h2>-->
+        <!--</div>-->
+        <!--<select data-ng-model="$rootScope.rules" data-ng-options="rule.message for rule in rules">-->
+            <!--<option value=""> --- Default Option ---</option>-->
+        <!--</select>-->
+    <!--</div>-->
+
+    <!-- here we use our "damnIt" directive-->
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">data-damn-it directive</h2>-->
+        <!--</div>-->
+        <!--<div data-damn-it></div>-->
+    <!--</div>-->
+
+
+    <!-- this content is under controller -->
+    <!--<div data-ng-controller="mainController" class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">This is mainController body</h2>-->
+        <!--</div>-->
+        <!--<p>Test val: {{controllerVar}}</p>-->
+
+        <!--<p data-ng-bind="binded"></p>-->
+    <!--</div>-->
+    <!-- same content in another template -->
+    <!--<div data-ng-view></div>-->
+</div>
+</body>
+</html>
