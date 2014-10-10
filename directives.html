@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="directives/app.js"></script>
+    <title>Angular basics</title>
+</head>
+<body>
+
+<div class="container" data-ng-app="angularDirectives">
+
+    <h1>{{appTitle}}</h1>
+    <hr>
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#hello" role="tab" data-toggle="tab">Hello</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="hello">
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- data-hello directive -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">data-hello directive</h2>
+                        </div>
+                        <div data-hello data-name="Ostap" data-color="orange"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

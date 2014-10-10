@@ -9,11 +9,12 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="app.js"></script>
+    <script src="basics/app.js"></script>
     <title>Angular basics</title>
 </head>
 <body class="container">
 <h1>Angular Basics</h1>
+
 
 <div data-ng-app="angularBasics" class="panel panel-default">
     <div class="panel-heading">
@@ -30,13 +31,14 @@
             <!--<h2 class="panel-title">data-ng-if, data-ng-hide directives</h2>-->
         <!--</div>-->
         <!--<button class="btn btn-primary" data-ng-click="$rootScope.trueFalse = !$rootScope.trueFalse">Click me!</button>-->
-        <!--<p data-ng-if="$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>true</b></p>-->
+        <!--{{$rootScope.trueFalse}}-->
+        <!--<p data-ng-if="!$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>true</b></p>-->
 
-        <!--<p data-ng-if="!$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>false</b></p>-->
+        <!--<p data-ng-if="$rootScope.trueFalse">This paragraph will be in DOM when $rootScope.trueFalse=<b>false</b></p>-->
 
         <!--<p data-ng-if="false">This text will be always deleted from DOM</p>-->
 
-        <!--<p data-ng-hide="true">This text will with "display=none;" css</p>-->
+        <!--<p data-ng-hide="$rootScope.trueFalse">This text will with "display=none;" css</p>-->
     <!--</div>-->
 
     <!-- data-ng-repeat directive -->
@@ -44,8 +46,8 @@
         <!--<div class="panel-heading">-->
             <!--<h2 class="panel-title">data-ng-repeat directive</h2>-->
         <!--</div>-->
-        <!--<ul data-ng-repeat="rule in rules">-->
-            <!--<li class="{{rule.index}}">{{rule.message}}</li>-->
+        <!--<ul>-->
+            <!--<li data-ng-repeat="rule in rules" class="{{rule.index}}">{{rule.message}}</li>-->
         <!--</ul>-->
     <!--</div>-->
 
@@ -55,7 +57,7 @@
             <!--<h2 class="panel-title">data-ng-options directive</h2>-->
         <!--</div>-->
         <!--<select data-ng-model="$rootScope.rules" data-ng-options="rule.message for rule in rules">-->
-            <!--<option value=""> --- Default Option ---</option>-->
+            <!--<option value="">--- Default Option ---</option>-->
         <!--</select>-->
     <!--</div>-->
 
@@ -74,11 +76,10 @@
             <!--<h2 class="panel-title">This is mainController body</h2>-->
         <!--</div>-->
         <!--<p>Test val: {{controllerVar}}</p>-->
-
         <!--<p data-ng-bind="binded"></p>-->
     <!--</div>-->
-    <!-- same content in another template -->
-    <!--<div data-ng-view></div>-->
+     <!--same content in another template -->
+    <div data-ng-view></div>
 </div>
 </body>
 </html>
