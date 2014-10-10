@@ -1,5 +1,5 @@
 
-App.controller('filterController', ['$scope', function($scope) {
+App.controller('filterController', ['$scope', '$filter', function($scope, $filter) {
 
 
     /// FilterFilter
@@ -55,5 +55,11 @@ App.controller('filterController', ['$scope', function($scope) {
 
     $scope.inputStr = "This is a some input value.";
     $scope.inputStr2 = "1.4142135623730951";
+    $scope.inputStr3 = "This is.";
+
+    // Doer
+    $scope.doer = function(value) {
+        return $filter('customFilterOne')(value, "AAA");
+    }
 
 }]);

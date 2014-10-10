@@ -1,7 +1,7 @@
 
 
 App.filter('customFilterOne', function() {
-    return function(input) {
+    return function(input, arg) {
         var res = "";
 
         var len = input.length;
@@ -9,6 +9,6 @@ App.filter('customFilterOne', function() {
             res = res.concat(input[len]);
         }
 
-        return res;
+        return res + " .. " + arg;
     };
 });

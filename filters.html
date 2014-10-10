@@ -265,7 +265,7 @@
                                 </form>
                                 <br>
                                 <p>
-                                    {{ inputStr | customFilterOne }}
+                                    {{ inputStr | customFilterOne:"asdad" }}
                                 </p>
                             </div>
                         </div>
@@ -289,6 +289,28 @@
                                 <br>
                                 <p>
                                     {{ inputStr2 | customFilterAnother }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Custom Filter 1 from Controller-->
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Custom Filter 1 (controller)</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-dollar"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Value" data-ng-model="inputStr3">
+                                </form>
+                                <br>
+                                <p>
+                                    {{ doer(inputStr3) }}
                                 </p>
                             </div>
                         </div>
