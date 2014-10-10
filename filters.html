@@ -23,6 +23,8 @@
     <!-- Application -->
     <script src="filter-module/app.js"></script>
     <script src="filter-module/controllers/filterController.js"></script>
+    <script src="filter-module/filters/customFilterOne.js"></script>
+    <script src="filter-module/filters/customFilterAnother.js"></script>
 
     <title>Filters</title>
 
@@ -108,6 +110,7 @@
             <div class="tab-pane" id="builtin">
 
                 <div class="row">
+                    <!--Currency Filter-->
                     <div class="col-md-4">
                         <div class="alert alert-info">
                             <p>
@@ -135,19 +138,164 @@
                                 </form>
                                 <br>
                                 <p>
-                                    {{ cashAmount | currency}}
+                                    {{ cashAmount | currency}} - no arguments
                                 </p>
                                 <p>
-                                    {{ cashAmount | currency:"£" }}
+                                    {{ cashAmount | currency:"£" }} - custom symbol specified
                                 </p>
                             </div>
                         </div>
                     </div>
+
+                    <!--Date Filter-->
+                    <div class="col-md-4">
+                        <div class="alert alert-info">
+                            <p>
+                                <strong>{{</strong>
+                                <span class="text-danger">date_expression </span>
+                                |
+                                <span class="text-info">date </span>
+                                :
+                                <span class="text-success">format</span>
+                                :
+                                <span class="text-primary">timezone</span>
+                                <strong>}}</strong>
+                            </p>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Date Filter</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-calendar"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Date" data-ng-model="inputDate">
+                                </form>
+                                <br>
+                                <p>
+                                    {{ inputDate | date }} - no arguments
+                                </p>
+                                <form>
+                                    <label class="control-label">
+                                        Specify Date Format
+                                    </label>
+                                    <select class="form-control" data-ng-model="dateFormat" data-ng-options="f for f in dateFormats"></select>
+                                </form>
+                                <br>
+                                <p>
+                                    {{ inputDate | date:dateFormat }} - custom date format
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--LimitTo Filter-->
+                    <div class="col-md-4">
+                        <div class="alert alert-info">
+                            <p>
+                                <strong>{{</strong>
+                                <span class="text-danger">limitTo_expression  </span>
+                                |
+                                <span class="text-info">limitTo </span>
+                                :
+                                <span class="text-success">limit</span>
+                                <strong>}}</strong>
+                            </p>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">LimitTo Filter</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-file-text"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Text" data-ng-model="inputText">
+                                </form>
+                                <br>
+                                <input class="form-control" type="number" placeholder="Limit" data-ng-model="limitTextLength">
+                                <br>
+                                <p>
+                                    {{ inputText | limitTo:limitTextLength }} - text limited to {{ limitTextLength }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
             <div class="tab-pane" id="custom">
-                WORK IN PROGRESS
+
+                <div class="alert alert-info">
+                    <p>
+                        <strong>{{</strong>
+                        <span class="text-danger">value </span>
+                        |
+                        <span class="text-info">filter_name </span>
+                        <strong>}}</strong>
+                    </p>
+                </div>
+
+
+                <div class="row">
+
+
+                    <!--Custom Filter 1-->
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Custom Filter</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-dollar"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Value" data-ng-model="inputStr">
+                                </form>
+                                <br>
+                                <p>
+                                    {{ inputStr | customFilterOne }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Custom Filter 2-->
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Custom Filter 2</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-dollar"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Value" data-ng-model="inputStr2">
+                                </form>
+                                <br>
+                                <p>
+                                    {{ inputStr2 | customFilterAnother }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
 
 

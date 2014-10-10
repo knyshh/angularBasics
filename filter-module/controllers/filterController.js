@@ -7,16 +7,16 @@ App.controller('filterController', ['$scope', function($scope) {
 
     $scope.someData = [
         "Var1",
-        "Var3",
         "Destroy",
         "Plugin",
+        "House",
         "Target",
         "Game",
         "Missile",
-        "House",
-        "Pilot",
+        "Var3",
         "Authorize",
         "Sofa",
+        "Pilot",
         "Dump",
         "Evaluate",
         "Demonstration",
@@ -34,5 +34,26 @@ App.controller('filterController', ['$scope', function($scope) {
     /// BuiltIn Filter Values
     $scope.cashAmount = 0;
 
+    $scope.inputDate = "2095-11-21";
+    $scope.dateFormats = [
+        "EEEE, MMMM d",
+        "MMM, d y",
+        "yyyy-MM-dd",
+        "dd.MM.yyyy",
+        "MM/dd/yyyy",
+        "fullDate",
+        "longDate",
+        "mediumDate",
+        "shortDate"
+    ];
+    $scope.dateFormat = "shortDate";
+
+    $scope.inputText = "This is a text. It is very long.";
+    $scope.limitTextLength = 3;
+
+    // Custom Filter Variables
+
+    $scope.inputStr = "This is a some input value.";
+    $scope.inputStr2 = "1.4142135623730951";
 
 }]);
