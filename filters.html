@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <meta charset="UTF-8">
+
+    <!--Bootstrap-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!--Font-Awesome-->
+    <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <!-- Application -->
+    <script src="filter-module/app.js"></script>
+    <script src="filter-module/controllers/filterController.js"></script>
+
+    <title>Filters</title>
+
+</head>
+<body data-ng-app="filterBasics" data-ng-controller="filterController">
+
+    <div class="container">
+        <h1>Filters;</h1>
+        <hr>
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#filter" role="tab" data-toggle="tab">Filters</a></li>
+            <li><a href="#builtin" role="tab" data-toggle="tab">Built-In</a></li>
+            <li><a href="#custom" role="tab" data-toggle="tab">Custom Filters</a></li>
+        </ul>
+
+        <hr>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="filter">
+
+                <div class="alert alert-info">
+                    <p><strong>{{</strong>
+                        <span class="text-danger">filter_expression</span>
+                        |
+                        <span class="text-info">filter</span>
+                        :
+                        <span class="text-success">expression</span>
+                        :
+                        <span class="text-primary">comparator</span>
+                    <strong>}}</strong></p>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <!--EXPRESSION PANEL-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Expression</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p>Filtering data using default Comparator</p>
+                                <form class="form-inline">
+                                    <label class="control-label"><i class="fa fa-search"></i></label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Filter" data-ng-model="searchTerm">
+                                </form>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item" data-ng-repeat="info in someData | filter:searchTerm">
+                                    {{ info }}
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <!--COMPARATOR PANEL-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Comparator</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p>Filtering data using custom Comparator</p>
+                                <form class="form-inline">
+                                    <label class="control-label"><i class="fa fa-search"></i></label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Filter" data-ng-model="searchTermTwo">
+                                </form>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item" data-ng-repeat="info in someData | filter:searchTermTwo:superComparator">
+                                    {{ info }}
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="builtin">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="alert alert-info">
+                            <p>
+                                <strong>{{</strong>
+                                <span class="text-danger">currency_expression </span>
+                                |
+                                <span class="text-info">currency </span>
+                                :
+                                <span class="text-success">symbol</span>
+                                <strong>}}</strong>
+                            </p>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Currency Filter</h2>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-inline">
+                                    <label class="control-label">
+                                        <i class="fa fa-dollar"></i>
+                                    </label>
+                                    &nbsp;
+                                    <input class="form-control" placeholder="Value" data-ng-model="cashAmount">
+                                </form>
+                                <br>
+                                <p>
+                                    {{ cashAmount | currency}}
+                                </p>
+                                <p>
+                                    {{ cashAmount | currency:"£" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="custom">
+                WORK IN PROGRESS
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
